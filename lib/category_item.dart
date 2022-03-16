@@ -41,13 +41,7 @@ class CategoryItem extends StatelessWidget {
   }
 
   selectCategory(BuildContext context) {
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: ((context) => CategoryMealsScreen(
-              categoryID: id,
-              categoryTitle: title,
-            )),
-      ),
-    );
+    Navigator.of(context).pushNamed(CategoryMealsScreen.routeName,
+        arguments: {'id': id, 'title': title});
   }
 }
