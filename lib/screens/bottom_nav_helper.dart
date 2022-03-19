@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meals_app/screens/category_screen.dart';
 import 'package:meals_app/screens/favourites_screen.dart';
+import 'package:meals_app/widgets/main_drawer.dart';
 
 class BottomNavHelper extends StatefulWidget {
   const BottomNavHelper({Key? key}) : super(key: key);
@@ -28,6 +29,7 @@ class _BottomNavHelperState extends State<BottomNavHelper> {
       appBar: AppBar(
         title: Text(_pages[_selectedPageIndex]['title']),
       ),
+      drawer:MainDrawer(),
       body: _pages[_selectedPageIndex]['page'],
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Theme.of(context).primaryColor,
@@ -35,7 +37,7 @@ class _BottomNavHelperState extends State<BottomNavHelper> {
         unselectedItemColor: Colors.white,
         currentIndex: _selectedPageIndex,
         onTap: _selectPage,
-        items: [
+        items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.category),
             label: 'Categories',
